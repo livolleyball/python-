@@ -7,7 +7,7 @@ sql_file = sys.argv[1]          #脚本的路径
 result_tb_name= sys.argv[2]    # 目标表
 
 # 将正则表达式编译成Pattern对象
-pattern = re.compile(r'(ods|dw|rpt|upf|dmp|dws|dwd|dm_njbi|dm_risk|push_data|dim|dm_algo|dwa|ads|bi|dm_prod|dm_crm|dm_tmp)(\.)([a-zA-Z0-9_]+)')
+pattern = re.compile(r'(ads|bi|dim|dm_risk|dm_tmp|dm_ugc|dmp|dw|dwa|dwd|dws|ods|push_data|rpt|upf)(\.)([a-zA-Z0-9_]+)')
 
 try:
     openFile = open(sql_file, 'r', encoding='UTF-8')
@@ -25,7 +25,9 @@ except KeyError:
 else:
     print("目标表：",result_tb_name)
     print("-------------------------------------")
-    print("依赖表：",result)
+    print("依赖表：共 %d 个",len(result))
+    for index,value in enumerate(list(result)):
+        print(index+1,value)
 
 finally:
     openFile.close()
