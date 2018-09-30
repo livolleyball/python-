@@ -25,8 +25,10 @@ except KeyError:
 else:
     print("目标表：",result_tb_name)
     print("-------------------------------------")
-    print("依赖表：共 %d 个",len(result))
-    for index,value in enumerate(list(result)):
+    print("依赖表：共 %d 个" % len(result))
+    result_list=list(result)
+    result_list.sort()
+    for index,value in enumerate(result_list):
         print(index+1,value)
 
 finally:
