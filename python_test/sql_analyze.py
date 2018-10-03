@@ -16,7 +16,7 @@ try:
     for line in openFile.readlines():
         match = pattern.findall(line)
         if match:
-            print(match)
+#             print(match)
             match_result=set(list(map(lambda x: "".join(x), match))) 
             result = result | (match_result)
 
